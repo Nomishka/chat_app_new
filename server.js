@@ -14,7 +14,7 @@ const server = app.listen(PORT, () => {
 
 const io = new Server(server, options);
 
-app.use(express.static("/"));
+app.use(express.static("./dist"));
 
 app.get("/", (req, res) => {
   res.sendFile("index.html");

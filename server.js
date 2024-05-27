@@ -17,7 +17,7 @@ const options = {
 };
 
 const server = app.listen(PORT, () => {
-  console.log("server is started");
+  console.log("server is started on port", PORT);
 });
 
 const io = new Server(server, options);

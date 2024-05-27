@@ -7,10 +7,12 @@
   },
   "type": "module",
   "devDependencies": {
+    "gh-pages": "^6.1.1",
     "webpack-cli": "^5.1.4"
   },
   "scripts": {
-    "start": "npx webpack && nodemon server.js"
+    "start": "npx webpack && nodemon server.js",
+    "predeploy": "npm start",
+    "deploy": "gh-pages -d dist"
   }
-
 }

@@ -14,8 +14,6 @@ const server = app.listen(PORT, () => {
 
 const io = new Server(server, options);
 
-
-
 app.use(express.static("./docs"));
 
 app.get("/", (req, res) => {

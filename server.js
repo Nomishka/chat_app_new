@@ -5,7 +5,7 @@ const PORT = 8080;
 const app = express();
 const options = {
   cors: true,
-  origin: ["http://localhost:8080"]
+  origin: ["http://localhost:8080"],
 };
 
 const server = app.listen(PORT, () => {

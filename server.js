@@ -14,6 +14,8 @@ const server = app.listen(PORT, () => {
 
 const io = new Server(server, options);
 
+let users = {};
+
 app.use(express.static("./docs"));
 
 app.get("/", (req, res) => {
@@ -21,13 +23,20 @@ app.get("/", (req, res) => {
 });
 
 io.on("connection", (socket) => {
-  socket.emit("welcome", socket.id);
-  socket.join("room1");
+  socket.on("join", (userName) => {
+    users[socket.id] = userName;
+    socket.emit("welcome", socket.id);
+    socket.join("room1");
+  });
 
   socket.on("message", (message) => {
     io.to("room1").emit("receiveMessage", {
       userId: socket.id,
+      userName: users[socket.id],
       message: message,
     });
+  });
+  socket.on("disconnect", () => {
+    delete users[socket.id];
   });
 });

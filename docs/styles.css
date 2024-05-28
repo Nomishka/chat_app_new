@@ -14,9 +14,10 @@ body {
 .main-container {
   border: 2px solid blue;
   width: 80vw;
+  max-width: 900px;
   display: flex;
   flex-direction: column;
-  justify-content: end;
+  justify-content: flex-end;
   margin: 30px 60px;
   background-color: lightskyblue;
 }
@@ -56,10 +57,10 @@ body {
   align-items: self-end;
 }
 
-.name-container button:disabled {
+/* .name-container button:disabled {
   background-color: grey;
   cursor: not-allowed;
-}
+} */
 
 .left {
   display: flex;
@@ -101,11 +102,16 @@ body {
   display: flex;
   justify-content: flex-end;
   margin-bottom: 20px;
-  font-size: 20px;
+  font-size: 18px;
   font-family: "Poppins", sans-serif;
+  height: auto;
 }
 
 .type-message {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
   width: 100%;
   margin: 20px 0 20px 0;
   order: 2;
@@ -121,19 +127,147 @@ body {
   border: none;
   padding: 5px 10px;
   font-family: "Poppins", sans-serif;
+  height: 40px;
 }
 
 #send-btn {
   width: 20%;
+  min-width: 40px;
   background-color: black;
   color: white;
   border: none;
   border-radius: 10px;
   padding: 5px 10px;
   font-family: "Poppins", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .message-text {
   font-family: "Poppins", sans-serif;
   font-size: 16px;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+}
+
+@media (max-width: 700px) {
+  .name {
+    font-size: 16px;
+  }
+
+  .message-text {
+    font-size: 15px;
+  }
+
+  .message-detail {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 600px) {
+  .main-container {
+    margin: 30px 30px;
+  }
+
+  .message {
+    padding: 15px;
+  }
+
+  .name {
+    font-size: 12px;
+  }
+
+  .type-message input {
+    height: 30px;
+  }
+
+  .message-text {
+    font-size: 11px;
+  }
+
+  .message-detail {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 500px) {
+  .name {
+    font-size: 10px;
+  }
+
+  .message-text {
+    font-size: 8px;
+  }
+
+  .message-detail {
+    font-size: 10px;
+  }
+}
+
+@media (max-width: 400px) {
+  .name {
+    display: -webkit-box;
+    -webkit-box-oriend: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+  }
+
+  .type-message input {
+    height: 25px;
+  }
+}
+
+@media (max-width: 350px) {
+  .main-container {
+    margin: 20px 20px;
+  }
+
+  .type-message input {
+    height: 20px;
+  }
+
+  .message {
+    padding: 10px;
+  }
+
+  .message-detail {
+    font-size: 10px;
+  }
+
+  #send-btn {
+    height: 20px;
+    display: flex;
+    align-items: center;
+  }
+
+  .type-message {
+    display: flex;
+    gap: 5px;
+    flex-wrap: wrap;
+  }
+
+  #input {
+    font-size: 10px;
+  }
+
+  #send-btn {
+    font-size: 10px;
+  }
+}
+
+@media (max-width: 270px) {
+  .main-container {
+    margin: 10px 10px;
+  }
+
+  #send-btn {
+    font-size: 7px;
+  }
+
+  .message-detail {
+    font-size: 7px;
+  }
 }

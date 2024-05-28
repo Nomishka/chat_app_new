@@ -1,4 +1,8 @@
 {
+  "name": "chat-app",
+  "version": "1.0.0",
+  "description": "A simple chat app",
+  "main": "server.js",
   "dependencies": {
     "express": "^4.19.2",
     "nodemon": "^3.1.0",

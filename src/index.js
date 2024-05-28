@@ -22,11 +22,11 @@ socket.on("receiveMessage", (response) => {
 
   const messageContainer = document.createElement("div");
   messageContainer.classList.add("message-container");
-  if(!isOur) messageContainer.classList.add("left");
+  if (!isOur) messageContainer.classList.add("left");
 
   const messageDetail = document.createElement("div");
   messageDetail.classList.add("message-detail");
-  if(!isOur) messageDetail.classList.add("left-detail");
+  if (!isOur) messageDetail.classList.add("left-detail");
 
   const messageDate = document.createElement("span");
   messageDate.classList.add("date");
@@ -41,7 +41,7 @@ socket.on("receiveMessage", (response) => {
 
   const messages = document.createElement("div");
   messages.classList.add("message");
-  if(!isOur) messages.classList.add("left-message");
+  if (!isOur) messages.classList.add("left-message");
 
   const messageInfo = document.createElement("div");
   messageInfo.classList.add("message-info");

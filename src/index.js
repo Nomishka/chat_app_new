@@ -48,7 +48,7 @@ socket.on("receiveMessage", (response) => {
 
   const messageName = document.createElement("span");
   messageName.classList.add("name");
-  messageName.innerText = userId;
+  messageName.innerText = response.userId;
 
   const messageText = document.createElement("p");
   messageText.classList.add("message-text");

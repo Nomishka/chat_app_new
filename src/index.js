@@ -4,20 +4,7 @@ const socket = io("https://chat-app-new-m2ui.onrender.com");
 const mainContainer = document.querySelector(".main-container");
 const input = document.getElementById("input");
 const sendButton = document.getElementById("send-btn");
-const joinButton = document.getElementById("join-btn");
-const nameInput = document.getElementById("name-input");
 let userId;
-let userName;
-
-joinButton.addEventListener("click", () => {
-  let userName = nameInput.value;
-  if (userName === "") return alert("Please enter your name");
-  socket.emit("join", userName);
-
-  document.querySelector(".name-container").style.display = "none";
-  document.querySelector(".chat-container").style.display = "block";
-
-})
 
 sendButton.addEventListener("click", () => {
   if (input.value === "") return;
@@ -60,14 +47,13 @@ socket.on("receiveMessage", (response) => {
 
   const messageName = document.createElement("span");
   messageName.classList.add("name");
-  messageName.innerText = response.userName;
+  messageName.innerText = response.userId;
 
   const messageText = document.createElement("p");
   messageText.classList.add("message-text");
   messageText.innerText = response.message;
 
   mainContainer.appendChild(messageContainer);
-  mainContainer.appendChild(name-container);
   messageContainer.appendChild(messageDetail);
   messageDetail.appendChild(messageDate);
   messageDetail.appendChild(messageTime);

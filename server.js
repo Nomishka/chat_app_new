@@ -4,8 +4,11 @@ import { Server } from "socket.io";
 const PORT = 8080;
 const app = express();
 const options = {
-  cors: true,
-  origin: ["https://chat-app-new-m2ui.onrender.com"]
+  cors: {
+    origin: ["http://localhost:8080", "https://chat-app-new-m2ui.onrender.com"],
+    methods: ["GET", "POST"],
+    allowedHeaders: ["Content-Type"],
+  },
 };
 
 const server = app.listen(PORT, () => {
@@ -14,6 +17,7 @@ const server = app.listen(PORT, () => {
 
 const io = new Server(server, options);
 
+app.use(cors(options.cors));
 app.use(express.static("./docs"));
 
 app.get("/", (req, res) => {

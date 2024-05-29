@@ -5,8 +5,7 @@ const PORT = 8080;
 const app = express();
 const options = {
   cors: true,
-  origin: ["https://chat-app-new-m2ui.onrender.com"],
-  methods: ["GET", "POST"]
+  origin: ["https://chat-app-new-m2ui.onrender.com"]
 };
 
 const server = app.listen(PORT, () => {
@@ -14,8 +13,6 @@ const server = app.listen(PORT, () => {
 });
 
 const io = new Server(server, options);
-
-let users = {};
 
 app.use(express.static("./docs"));
 

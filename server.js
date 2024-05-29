@@ -5,7 +5,8 @@ const PORT = 8080;
 const app = express();
 const options = {
   cors: true,
-  origin: ["http://localhost:8080"],
+  origin: ["https://chat-app-new-m2ui.onrender.com"],
+  methods: ["GET", "POST"]
 };
 
 const server = app.listen(PORT, () => {
@@ -23,20 +24,13 @@ app.get("/", (req, res) => {
 });
 
 io.on("connection", (socket) => {
-  socket.on("join", (userName) => {
-    users[socket.id] = userName;
-    socket.emit("welcome", socket.id);
-    socket.join("room1");
-  });
+  socket.emit("welcome", socket.id);
+  socket.join("room1");
 
   socket.on("message", (message) => {
     io.to("room1").emit("receiveMessage", {
       userId: socket.id,
-      userName: users[socket.id],
       message: message,
     });
-  });
-  socket.on("disconnect", () => {
-    delete users[socket.id];
   });
 });

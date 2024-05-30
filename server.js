@@ -5,7 +5,7 @@ const PORT = 8080;
 const app = express();
 const options = {
   cors: true,
-  origin: ["https://chat-app-new-m2ui.onrender.com", "http://localhost8080"],
+  origin: ["https://chat-app-new-m2ui.onrender.com"]
 };
 
 const server = app.listen(PORT, () => {

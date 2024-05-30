@@ -16,7 +16,7 @@
   },
   "scripts": {
     "build": "webpack",
-    "move-dist": "mv dist/* docs/",
+    "move-dist": "cp dist/* docs/",
     "deploy": "npm run build && npm run move-dist && git add docs && git commit -m 'Deploy to Github Pages' && git push origin main",
     "start": "npx webpack && nodemon server.js"
   }

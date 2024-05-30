@@ -3,16 +3,18 @@ import { Server } from "socket.io";
 
 const PORT = 8080;
 const app = express();
-const options = {
-  cors: true,
-  origin: ["https://chat-app-new-m2ui.onrender.com"],
-};
 
 const server = app.listen(PORT, () => {
   console.log("server is started on port", PORT);
 });
 
-const io = new Server(server, options);
+const io = new Server(server, {
+  cors: {
+    origin: "https://chat-app-new-m2ui.onrender.com",
+    methods: ["GET", "POST"],
+    credentials: true
+  }
+})
 
 app.use(express.static("./docs"));
 

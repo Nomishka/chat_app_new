@@ -6,7 +6,7 @@ const app = express();
 
 const allowedOrigins = [
   "https://chat-app-new-m2ui.onrender.com",
-  "https://github.com/Nomishka/chat_app_new"
+  "https://nomishka.github.io/chat_app_new"
 ];
 
 const server = app.listen(PORT, () => {
